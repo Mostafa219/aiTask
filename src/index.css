@@ -1,0 +1,190 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600&display=swap');
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light theme - Elegant cream and gold */
+    --background: 44 33% 97%; /* #FDFBF6 cream */
+    --foreground: 0 0% 13%; /* #222222 deep charcoal */
+
+    --card: 44 33% 97%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 44 33% 97%;
+    --popover-foreground: 0 0% 13%;
+
+    --primary: 43 74% 54%; /* #D4AF37 metallic gold */
+    --primary-foreground: 0 0% 13%;
+
+    --secondary: 44 33% 94%;
+    --secondary-foreground: 0 0% 13%;
+
+    --muted: 44 33% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 43 74% 54%;
+    --accent-foreground: 0 0% 13%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 44 33% 97%;
+
+    --border: 44 33% 88%;
+    --input: 44 33% 88%;
+    --ring: 43 74% 54%;
+
+    --radius: 0.75rem;
+
+    /* Luxury perfume specific colors */
+    --gold: 43 74% 54%; /* #D4AF37 */
+    --cream: 44 33% 97%; /* #FDFBF6 */
+    --charcoal: 0 0% 13%; /* #222222 */
+  }
+
+  .dark {
+    /* Dark theme - Rich and luxurious */
+    --background: 0 0% 10%; /* #1a1a1a rich charcoal */
+    --foreground: 0 0% 92%; /* #EAEAEA soft white */
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 43 74% 54%; /* #D4AF37 gold remains */
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 92%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 43 74% 54%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62% 51%;
+    --destructive-foreground: 0 0% 92%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 43 74% 54%;
+
+    /* Dark theme luxury colors */
+    --gold: 43 74% 54%;
+    --cream: 0 0% 10%;
+    --charcoal: 0 0% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', 'Cairo', sans-serif;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  [dir="ltr"] {
+    direction: ltr;
+  }
+
+  /* Typography classes */
+  .font-heading {
+    font-family: 'Playfair Display', 'Amiri', serif;
+  }
+
+  .font-body {
+    font-family: 'Lato', 'Cairo', sans-serif;
+  }
+
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .hover-gold {
+    transition: color 0.3s ease;
+  }
+
+  .hover-gold:hover {
+    color: hsl(var(--primary));
+  }
+
+  /* Gradient backgrounds */
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+}
